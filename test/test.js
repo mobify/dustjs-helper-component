@@ -1,8 +1,8 @@
 // Declare deps.
-var assert = require('assert');
+var dust = require('../index');
 var fs = require('fs');
 var stringify = require('json-stringify-pretty-compact');
-var dust = require('../index');
+var assert = require('assert');
 
 // Set up, compile and load the example component.
 var templateName = 'example';
