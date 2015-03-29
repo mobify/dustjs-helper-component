@@ -1,10 +1,8 @@
 // Declare deps.
-var dust = require('dustjs-linkedin');
 var assert = require('assert');
 var fs = require('fs');
 var stringify = require('json-stringify-pretty-compact');
-require('dustjs-helpers');
-require('../index');
+var dust = require('../index');
 
 // Set up, compile and load the example component.
 var templateName = 'example';

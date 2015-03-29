@@ -1,7 +1,14 @@
-(function(dust) {
-  var dust = require('dustjs-linkedin');
-  var stringify = require('json-stringify-pretty-compact');
-  require('dustjs-helpers');
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(['dustjs-linkedin'], factory);
+  } else if (typeof exports === 'object') {
+    module.exports = factory(require('dustjs-linkedin'));
+  } else {
+    factory(root.dust);
+  }
+}(this, function(dust) {
+
+  dust.helpers = dust.helpers || {};
 
   dust.helpers.component = function component(chunk, context, bodies, params) {
 
@@ -68,4 +75,6 @@
     // Return the evaluated template.
     return dust.load(templateName, chunk, componentContext);
   }
-})(typeof exports !== 'undefined' ? module.exports = require('dustjs-linkedin') : dust);
+
+  return dust;
+}));
