@@ -7,7 +7,6 @@ module.exports = function(grunt) {
 
     simplemocha: {
       options: {
-        globals:['should'],
         timeout: 3000,
         ignoreLeaks: false,
         ui: 'bdd',
