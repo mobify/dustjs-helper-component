@@ -19,22 +19,7 @@ dust.compileFn(fs.readFileSync('test/fixtures/example.dust', 'utf8'), templateNa
 
 // Run the tests
 describe('component helper', function() {
-  // Todo these two tests aren’t testing the helper: remove them
-  it('can access keys in the current context.', function() {
-    var code = '<p>{passed}</p>';
 
-    dust.renderSource(code, context, function(err, out) {
-      assert.equal(out, '<p>Passed!</p>');
-    });
-  });
-
-  it('can render a template.', function() {
-    dust.render(templateName, dust.makeBase({}), function(err, out) {
-      assert.equal(out, '<div class="c-example"></div>');
-    });
-  });
-
-  // Proper tests
   it('exists.', function() {
     assert.equal(typeof dust.helpers.component, 'function');
   });
