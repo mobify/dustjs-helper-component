@@ -33,7 +33,7 @@
     // Params to be passed to the component template.
     var componentParams = [];
 
-    // Some params names are reserved:
+    // Some param names are reserved:
     // - `name` is for choosing the component to render and isn’t passed to
     //   the template.
     // - `ctx` is reserved for passing the entire component context in one
