@@ -40,10 +40,10 @@
     //   param, which is sometimes convenient. Even though Dust has its own
     //   {tag:context /} syntax for this, We can’t respect it because in a
     //   helper there is no way to differentiate explicit from inherited
-    //   context, and avoiding inherited context is by design. This param is
+    //   context, and we’re avoiding inherited context by design. This param is
     //   not passed to the template.
-    // - `body` is reserved as the key for the default dust body in the template
-    //   and can’t be used as a param name.
+    // - `body` is reserved as the key in which the default dust body is
+    //   provided to the template. It therefore can’t be used as a param name.
     var reservedParamNames = ['name', 'ctx', 'body'];
 
     // If and only if an explit context was provided, set up that context.
@@ -82,7 +82,8 @@
       }.bind(bodies[name])
 
       // The default (unnamed) body is referred to internally as `block`. For
-      // usability reasons, we expose this in the template as `body` instead.
+      // usability reasons, we expose this in the template as the `body` key
+      // instead.
       if (name === 'block') {
         componentParams['body'] = proxy;
       } else {
