@@ -79,4 +79,28 @@ describe('component helper', function() {
       assert.equal(out, '<div class="c-example c--featured"><p><em>Passed!</em></p><p>Template name is <strong>example</strong></p><p>Faved!</p></div>');
     });
   });
+
+  it('handles (nested) components in bodies.', function() {
+    var code ='{@component name="example" isFeatured="true" state=state}<p><em>{passed}</em></p>{:other}{@component name="example"}<blockquote>I am nested!</blockquote>{/component}{/component}';
+
+    dust.renderSource(code, context, function(err, out) {
+      assert.equal(out, '<div class="c-example c--featured"><p><em>Passed!</em></p><div class="c-example"><blockquote>I am nested!</blockquote></div><p>Faved!</p></div>');
+    });
+  });
+
+  it('cannot force the component’s context using the native syntax.', function() {
+    var code ='{@component:. name="example"}{/component}';
+
+    dust.renderSource(code, context, function(err, out) {
+      assert.equal(out, '<div class="c-example"></div>');
+    });
+  });
+
+  it('can force the component’s context via the `ctx` param.', function() {
+    var code ='{@component name="example" ctx=.}{/component}';
+
+    dust.renderSource(code, context, function(err, out) {
+      assert.equal(out, '<div class="c-example"><p>Outer</p><p>Faved!</p></div>');
+    });
+  });
 });
