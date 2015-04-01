@@ -50,15 +50,13 @@
     // Otherwise, the context available to the component template is limited
     // to the params and bodies passed in.
     if (params.ctx) {
-      componentContext.blocks = context.blocks;
+      componentContext = componentContext.push(params.ctx);
 
-      if (context.stack && context.stack.tail) {
-        // Grab the tail off of the previous context if we have it.
-        componentContext.stack = context.stack.tail;
+      // The empty context created above is now set as the tail; we can safely
+      // remove it.
+      if (componentContext.stack) {
+        componentContext.stack.tail = undefined;
       }
-
-      // Reattach the head.
-      componentContext = componentContext.push(context.stack.head);
     }
 
     // Process params and make them available to the template, filtering out
