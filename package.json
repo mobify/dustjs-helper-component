@@ -1,19 +1,25 @@
 {
-  "name": "dust-component-helper",
+  "name": "dustjs-component-helper",
   "description": "Encapsulated, composable components in Dust",
   "version": "0.0.1",
-  "author": "Ryan L Frederick <ryan@ryanfrederick.com> (http://ryanfrederick.com/)",
+  "author": "Ryan L Frederick",
+  "keywords": [
+    "dust",
+    "components",
+    "helper"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ry5n/dust-component-helper.git"
+    "url": "https://github.com/ry5n/dustjs-component-helper.git"
   },
   "main": "index.js",
   "scripts": {
     "test": "grunt test"
   },
   "dependencies": {
-    "dustjs-linkedin": "~2.6.1"
+    "dustjs-linkedin": "~2.6.1",
+    "umd-function-bind": "ry5n/umd-function-bind#1.1.0"
   },
   "devDependencies": {
     "grunt": "^0.4.5",

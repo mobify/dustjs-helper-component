@@ -1,13 +1,14 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    define(['dustjs-linkedin'], factory);
+    define(['dustjs-linkedin', 'umd-function-bind'], factory);
   } else if (typeof exports === 'object') {
-    module.exports = factory(require('dustjs-linkedin'));
+    module.exports = factory(require('dustjs-linkedin'), require('umd-function-bind'));
   } else {
     factory(root.dust);
   }
-}(this, function(dust) {
+}(this, function(dust, bind) {
 
+  Function.prototype.bind = Function.prototype.bind || bind;
   dust.helpers = dust.helpers || {};
 
   dust.helpers.component = function component(chunk, context, bodies, params) {
