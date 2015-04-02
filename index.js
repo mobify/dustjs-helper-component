@@ -75,7 +75,6 @@
       // as part of the view. To accomplish this, we replace the dust body with
       // a proxy that passes in the original (outer) context instead of the
       // component context.
-
       var proxy = (function(bodyFn) {
         return function() {
           bodyFn(chunk, originalContext);
