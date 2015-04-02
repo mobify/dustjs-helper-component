@@ -1,14 +1,13 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    define(['dustjs-linkedin', 'umd-function-bind'], factory);
+    define(['dustjs-linkedin'], factory);
   } else if (typeof exports === 'object') {
-    module.exports = factory(require('dustjs-linkedin'), require('umd-function-bind'));
+    module.exports = factory(require('dustjs-linkedin'));
   } else {
     factory(root.dust);
   }
-}(this, function(dust, bind) {
+}(this, function(dust) {
 
-  Function.prototype.bind = Function.prototype.bind || bind;
   dust.helpers = dust.helpers || {};
 
   dust.helpers.component = function component(chunk, context, bodies, params) {
@@ -76,9 +75,12 @@
       // as part of the view. To accomplish this, we replace the dust body with
       // a proxy that passes in the original (outer) context instead of the
       // component context.
-      var proxy = function(chunk, context) {
-        return this(chunk, originalContext);
-      }.bind(bodies[name])
+
+      var proxy = (function(bodyFn) {
+        return function() {
+          bodyFn(chunk, originalContext);
+        }
+      })(bodies[name]);
 
       // The default (unnamed) body is referred to internally as `block`. For
       // usability reasons, we expose this in the template as the `body` key
