@@ -13,7 +13,7 @@
   dust.helpers.component = function component(chunk, context, bodies, params) {
 
     // The component name is required to load and render the template.
-    if (!params.name) {
+    if (!params.is) {
       return chunk;
     }
 
@@ -28,13 +28,13 @@
     var componentContext = dust.makeBase(context.global);
 
     // Set the template to render.
-    var templateName = componentContext.templateName = params.name;
+    var templateName = componentContext.templateName = params.is;
 
     // Params to be passed to the component template.
     var componentParams = [];
 
     // Some param names are reserved:
-    // - `name` is for choosing the component to render and isn’t passed to
+    // - `is` is for choosing the component to render and isn’t passed to
     //   the template.
     // - `ctx` is reserved for passing the entire component context in one
     //   param, which is sometimes convenient. Even though Dust has its own
@@ -44,7 +44,7 @@
     //   not passed to the template.
     // - `body` is reserved as the key in which the default dust body is
     //   provided to the template. It therefore can’t be used as a param name.
-    var reservedParamNames = ['name', 'ctx', 'body'];
+    var reservedParamNames = ['is', 'ctx', 'body'];
 
     // If and only if an explit context was provided, set up that context.
     // Otherwise, the context available to the component template is limited
