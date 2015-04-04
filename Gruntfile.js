@@ -13,7 +13,10 @@ module.exports = function(grunt) {
         reporter: 'tap'
       },
       all: {
-        src: ['test/**/*.js']
+        src: [
+          'test/test-component-helper.js',
+          'test/test-component-extensions.js',
+        ]
       }
     },
   });

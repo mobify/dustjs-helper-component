@@ -1,5 +1,5 @@
 {
-  "name": "dustjs-component-helper",
+  "name": "component-dustjs-utils",
   "description": "Encapsulated, composable components in Dust",
   "version": "0.0.1",
   "author": "Ryan L Frederick",
@@ -11,7 +11,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ry5n/dustjs-component-helper.git"
+    "url": "https://github.com/ry5n/component-dustjs-utils.git"
   },
   "main": "index.js",
   "scripts": {

@@ -1,11 +1,12 @@
 // Declare deps.
-var dust = require('../index');
+var dust = require('../lib/component-helper');
 var fs = require('fs');
 var stringify = require('json-stringify-pretty-compact');
 var assert = require('assert');
 
-// Set up, compile and load the example component.
+// Set up fixtures.
 var templateName = 'example';
+var template = fs.readFileSync('test/fixtures/example.dust', 'utf8');
 var context = {
   outer: 'Outer',
   passed: 'Passed!',
@@ -15,11 +16,10 @@ var context = {
   }
 };
 
-dust.compileFn(fs.readFileSync('test/fixtures/example.dust', 'utf8'), templateName);
+dust.loadSource(dust.compile(template, templateName));
 
 // Run the tests
-describe('component helper', function() {
-
+describe('the component helper', function() {
   it('exists.', function() {
     assert.equal(typeof dust.helpers.component, 'function');
   });
