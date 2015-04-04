@@ -1,1 +1,1 @@
-# Dust Component Helper
+# Dust.JS Component Helper

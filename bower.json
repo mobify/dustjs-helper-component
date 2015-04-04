@@ -2,7 +2,9 @@
   "name": "dustjs-component-helper",
   "description": "Encapsulated, composable components in Dust",
   "version": "0.0.1",
-  "author": "Ryan L Frederick",
+  "authors": [
+    "Ryan Frederick <ryan@ryanfrederick.com>"
+  ],
   "keywords": [
     "dust",
     "components",
@@ -14,16 +16,19 @@
     "url": "https://github.com/ry5n/dustjs-component-helper.git"
   },
   "main": "index.js",
-  "scripts": {
-    "test": "grunt test"
-  },
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
   "dependencies": {
     "dustjs-linkedin": "~2.6.1"
-  },
-  "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-simple-mocha": "^0.4.0",
-    "json-stringify-pretty-compact": "^1.0.1",
-    "load-grunt-tasks": "^3.1.0"
   }
 }
