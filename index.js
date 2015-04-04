@@ -76,8 +76,8 @@
       // a proxy that passes in the original (outer) context instead of the
       // component context.
       var proxy = (function(bodyFn) {
-        return function() {
-          bodyFn(chunk, originalContext);
+        return function(bodyChunk) {
+          bodyFn(bodyChunk, originalContext);
         }
       })(bodies[name]);
 
