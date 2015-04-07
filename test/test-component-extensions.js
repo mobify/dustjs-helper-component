@@ -19,7 +19,6 @@ var context = {
 // Load the template as a component (adds a helper based on templateName).
 dust.loadSource(dust.compileComponent(template, templateName));
 
-
 // Run the tests
 describe('the compileComponent extension', function() {
   it('requires the component helper', function() {
@@ -27,13 +26,13 @@ describe('the compileComponent extension', function() {
   });
 
   it('registers a helper for the component', function() {
-    assert.equal(typeof dust.helpers['Example'], 'function');
+    assert.equal(typeof dust.helpers['c-example'], 'function');
   });
 });
 
 describe('a helper registered by compileComponent', function() {
   it('successfully renders the component.', function() {
-    var code = '{@Example /}';
+    var code = '{@c-example /}';
 
     dust.renderSource(code, context, function(err, out) {
       assert.equal(out, '<div class="c-example"></div>');
@@ -41,7 +40,7 @@ describe('a helper registered by compileComponent', function() {
   });
 
   it('renders a complex component instance.', function() {
-    var code ='{@Example isFeatured="true" state=state}<p><em>{passed}</em></p>{:other}{@Example}<blockquote>I am nested!</blockquote>{/Example}{/Example}';
+    var code ='{@c-example isFeatured="true" state=state}<p><em>{passed}</em></p>{:other}{@c-example}<blockquote>I am nested!</blockquote>{/c-example}{/c-example}';
 
     dust.renderSource(code, context, function(err, out) {
       assert.equal(out, '<div class="c-example c--featured"><p><em>Passed!</em></p><div class="c-example"><blockquote>I am nested!</blockquote></div><p>Faved!</p></div>');
@@ -49,7 +48,7 @@ describe('a helper registered by compileComponent', function() {
   });
 
   it('should be case sensitive.', function() {
-    var code = '{@example /}';
+    var code = '{@c-Example /}';
 
     dust.renderSource(code, context, function(err, out) {
       assert.equal(out, '');
