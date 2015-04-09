@@ -1,13 +1,13 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd && define.amd.dust === true) {
     define([
-      './lib/component-helper',
-      './lib/component-extensions'
+      './lib/helper',
+      './lib/compiler'
     ], factory);
   } else if (typeof exports === 'object') {
     module.exports = factory(
-      require('./lib/component-helper'),
-      require('./lib/component-extensions')
+      require('./lib/helper'),
+      require('./lib/compiler')
     );
   } else {
     factory(root.dust);

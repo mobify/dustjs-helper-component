@@ -1,5 +1,5 @@
 // Declare deps.
-var dust = require('../lib/component-helper');
+var dust = require('../lib/helpers');
 var fs = require('fs');
 var stringify = require('json-stringify-pretty-compact');
 var assert = require('assert');

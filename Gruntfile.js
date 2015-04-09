@@ -14,8 +14,7 @@ module.exports = function(grunt) {
       },
       all: {
         src: [
-          'test/test-component-helper.js',
-          'test/test-component-extensions.js',
+          'test/**/*.js',
         ]
       }
     },
