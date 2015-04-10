@@ -1,7 +1,7 @@
 {
   "name": "component-dustjs-utils",
   "description": "Encapsulated, composable components in Dust",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Ryan L Frederick",
   "keywords": [
     "dust",
@@ -18,7 +18,7 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "dustjs-linkedin": "~2.6.1"
+    "dustjs-linkedin": "^2.6.0"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
