@@ -26,7 +26,9 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "package.json",
+    "Gruntfile.js"
   ],
   "dependencies": {
     "dustjs-linkedin": "^2.6.0"
