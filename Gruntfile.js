@@ -13,7 +13,9 @@ module.exports = function(grunt) {
         reporter: 'tap'
       },
       all: {
-        src: ['test/**/*.js']
+        src: [
+          'test/**/*.js',
+        ]
       }
     },
   });
