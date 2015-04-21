@@ -1,5 +1,5 @@
 {
-  "name": "component-dustjs-utils",
+  "name": "dustjs-component",
   "description": "Encapsulated, composable components in Dust",
   "version": "0.0.2",
   "authors": [
@@ -13,7 +13,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ry5n/component-dustjs-utils.git"
+    "url": "https://github.com/mobify/dustjs-helper-component.git"
   },
   "main": "index.js",
   "moduleType": [
